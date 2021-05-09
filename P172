@@ -1,0 +1,67 @@
+A-Frame
+<script src="https://aframe.io/releases/0.6.0/aframe.min.js"> </script>
+● AR.js
+<script
+src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"
+></script>
+● Bootstrap
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJ
+lSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+● SweetAlert
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+● Gesture Detection (for Scale and Rotation)
+<script
+src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script
+>
+● Local StyleSheet
+<link href="./style.css" rel="stylesheet" />
+● Local JavaScript Files
+<script src="./js/addButtons.js"></script>
+<script src="./js/markerhandler.js"></script>
+<script src="./js/addMarkers.js"></script>
+AFRAME.registerComponent("create-buttons", {
+  init: function() {
+    // 1. Create the Rating button
+    var button1 = document.createElement("button");
+    button1.innerHTML = "RATE DISH";
+    button1.setAttribute("id", "rating-button");
+    button1.setAttribute("class", "btn btn-warning ml-3 mr-3");
+
+    // 2. Create the Order button
+    var button2 = document.createElement("button");
+    button2.innerHTML = "ORDER NOW";
+    button2.setAttribute("id", "order-button");
+    button2.setAttribute("class", "btn btn-warning mr-3");
+
+    // 3. Create the Summary & Total Bill button
+    var button3 = document.createElement("button");
+    button3.innerHTML = "ORDER SUMMARY";
+    button3.setAttribute("id", "order-summary-button");
+    button3.setAttribute("class", "btn btn-warning ml-3");
+
+    // 2. Append somewhere
+    var buttonDiv = document.getElementById("button-div");
+    buttonDiv.appendChild(button3);
+    buttonDiv.appendChild(button1);
+    buttonDiv.appendChild(button2);
+  }
+});
+getOrderSummary: async function (tNumber) {
+    return await firebase
+      .firestore()
+      .collection("tables")
+      .doc(tNumber)
+      .get()
+      .then(doc => doc.data());
+orderSummaryButtton.addEventListener("click", () =>
+        this.handleOrderSummary()
+orderSummaryButtton.addEventListener("click", () =>
+        this.handleOrderSummary()
+      );        
+var orderSummaryButtton = document.getElementById("order-summary-button");
+handlePayment: function () {
+payButton.addEventListener("click", () => this.handlePayment())
+var payButton = document.getElementById("pay-button");
